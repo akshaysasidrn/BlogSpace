@@ -3,11 +3,11 @@
 <p id="notice"><%= notice %></p>
 
 <p style="font-size:25px; font-family:'Poppins', sans-serif"> 
-  <%= @post.title %>
+  <%=@post.title %>
 </p>
 
 <p style="font-size:15px; font-family:sans-serif">
-  <%= @post.body %>
+  <%=simple_format(@post.body)%>
 </p>
 
 <h3>Comments</h3>
@@ -19,7 +19,7 @@
 <br/>
 
 <% @post.comments.each do |comment| %>
-	<p><%= comment.comment %></p>
+	<p><%= simple_format(comment.comment) %></p>
 <% end %>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

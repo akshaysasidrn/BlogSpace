@@ -4,11 +4,12 @@
  <br>
     <% @posts.each do |post| %>
         <span style="font-size:25px; font-family:'Poppins', sans-serif"><%= post.title %></span><br>
-        <span style="font-size:15px; font-family:sans-serif"><%= post.body %></span><br>
+        <span style="font-size:15px; font-family:sans-serif"><%= truncate(post.body) %></span><br>
         <span>
               <%= link_to 'Show', post %>
               <%= link_to 'Edit', edit_post_path(post) %>
               <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <span style="float:right"><%= post.created_at %></span><br>
         </span>
         <br><hr>
     <% end %>
