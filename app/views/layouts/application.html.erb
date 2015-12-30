@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BlogApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://talentspace.in/"><img  alt="TalentSpace.in" width="160" src="https://talentspace.in/assets/talentspace-1b5504f7670192adcbb2d7a3f561532d10ef3edd12bb4844cf44a088ac0f93a6.png"></a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav navbar-right">
+      
+		<% if user_signed_in? %>
+  			<li><a href="/posts">Home</a></li>
+  			<li>
+  			<div class="dropdown">
+  				<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top:8px;" ><%= current_user.email %>
+		  		<span class="caret"></span></button>
+		  		<ul class="dropdown-menu">
+		    	<li><a href="#">My Posts</a></li>
+		    	<li><a href="/users/password/edit">Account</a></li>
+		  		</ul>
+			</div>
+  			<li>
+  				<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+  			</li>
+		<% else %>
+  			<li><a href="/">Home</a></li>
+  			<li>
+  				<%= link_to('Login', new_user_session_path)  %>  
+  			</li>
+			<li><a href="/users/sign_up">Sign Up</a></li>
+		<% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+<br/><br/>
+
+<%= yield %>
+
+<br/><br>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" style="position: relative; bottom: 0;">
+    <ul class="list-inline text-center">
+        <li>
+            <a href="https://twitter.com/aksh_iam">
+                <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+            </a>
+        </li>
+        <li>
+            <a href="https://facebook.com/cutebutcracky">
+                <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                </span>
+            </a>
+        </li>
+        <li>
+            <a href="https://github.com/aksh93">
+                <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+            </a>
+        </li>
+    </ul>
+    <p style="font-size: 14px; text-align: center;margin-bottom: 0; color: #777;">Copyright © BlogSpace 2015-2016</p>
+</div>
+
+</body>
+</html>

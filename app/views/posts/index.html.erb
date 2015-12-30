@@ -1,0 +1,19 @@
+<br>
+<div class="container">
+<p id="notice"><%= notice %></p>
+ <br>
+    <% @posts.each do |post| %>
+        <span style="font-size:25px; font-family:'Poppins', sans-serif"><%= post.title %></span><br>
+        <span style="font-size:15px; font-family:sans-serif"><%= post.body %></span><br>
+        <span>
+              <%= link_to 'Show', post %>
+              <%= link_to 'Edit', edit_post_path(post) %>
+              <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </span>
+        <br><hr>
+    <% end %>
+
+<br/>
+
+<%= link_to 'New Post', new_post_path %>
+</div>
