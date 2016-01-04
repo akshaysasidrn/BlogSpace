@@ -5,7 +5,12 @@
 <p style="font-size:25px; font-family:'Poppins', sans-serif"> 
   <%=@post.title %>
 </p>
-<span style="float:left"><%= current_user.email %></span><br>
+<span style="float:left;color: #777"><% User.all.each do |p| %>
+<% if @post.user_id == p.id%>
+	- <%= p.email %>
+<% end %>
+<% end %>
+</span><br>
 <span style="float:right"><%= (@post.created_at).strftime("%d %b %y") %></span><br>
 
 <p>
@@ -19,9 +24,8 @@
 	<%= f.submit 'Submit' %>
 <% end %>
 <br/>
-
 <% @post.comments.each do |comment| %>
-	<p><%= simple_format(comment.comment) %></p>
+	<p><%= @temp %> : <%= comment.comment %></p>
 <% end %>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

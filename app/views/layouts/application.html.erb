@@ -19,12 +19,14 @@
     </div>
     <div>
       <ul class="nav navbar-nav navbar-right">
-      
+      <% if user_signed_in? %>
+        <% @username = current_user.email.chomp.split("@").first %>
+      <% end %>
     <% if user_signed_in? %>
         <li><a href="/posts">Home</a></li>
         <li>
         <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top:8px;" ><%= current_user.email %>
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top:8px;" ><%= @username %>
           <span class="caret"></span></button>
           <ul class="dropdown-menu">
           <li><a href="/posts/userposts">My Posts</a></li>
