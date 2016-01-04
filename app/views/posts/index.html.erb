@@ -5,7 +5,7 @@
     
         <br>
         <span style="font-size:25px; font-family:'Poppins', sans-serif"><%= post.title %></span><br>
-        <span style="font-size:15px; font-family:sans-serif"><%= truncate(strip_tags(post.body)) %></span><br>
+        <span style="font-size:15px; font-family:sans-serif"><%= truncate(strip_tags(post.body),length: 500) %></span><br>
         <span>
               <%= link_to '<i class="fa fa-eye"> Show </i>'.html_safe, post %>
               <%= link_to '<i class="fa fa-pencil"> Edit </i>'.html_safe, edit_post_path(post) %>
