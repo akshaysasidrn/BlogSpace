@@ -20,6 +20,16 @@ gem 'devise'
 
 gem 'pg', group: :production
 
+gem 'ckeditor', github: 'galetahub/ckeditor'
+
+gem 'paperclip'
+
+gem "font-awesome-rails"
+
+gem "table_print"
+
+gem 'will_paginate', '~> 3.0.6'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

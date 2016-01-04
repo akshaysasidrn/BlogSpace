@@ -10,15 +10,15 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, :size => '100x1' %>
   </div>
-  <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
+  <div>
+  <br>
+    <%= f.cktext_area :body, :cols => 40,:ckeditor => {:uiColor => '#add8e6', :toolbar => 'mini'} %>
   </div>
+  <br>
   <div class="actions">
     <%= f.submit %>
   </div>
