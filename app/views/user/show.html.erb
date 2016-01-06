@@ -17,7 +17,7 @@
             <p id="notice"><%= notice %></p>
                 <% @posts.each do |post| %>
                   <% User.all.each do |p| %>
-                      <% if post.user_id == p.id%>
+                      <% if post.user_id == p.id %>
                         <% @username = p.email %>
                       <% end %>
                   <% end %>
