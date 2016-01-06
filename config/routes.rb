@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'posts#home'
   post '/posts/:post_id/comments' => 'comments#create', as: :post_comments
-  get  '/user' => 'user#show'
+  get  '/user' => 'user#show' , as: :user_profile
   #get '/posts' => 'posts#index' as: :current_user_path
 
   # Example of regular route:
