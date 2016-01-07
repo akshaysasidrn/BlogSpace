@@ -18,6 +18,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 
 gem 'devise'
 
+gem 'bootstrap_form'
+
 gem 'pg', group: :production
 
 gem 'ckeditor', github: 'galetahub/ckeditor'

@@ -3,30 +3,31 @@
 <div class="panel panel-default">
   <div class="panel-heading">Sign up</div>
   <div class="panel-body">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
+ 
+ <div class="field">
+  <span style="float:right">
+   <div class="media">
+   <%= f.file_field :avatar, label: "Profile Picture" %>
+  </div>
+  </span>
+  </div><br>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+ 
+  <div class="field">
     <%= f.email_field :email, autofocus: true %>
   </div>
-<% @user = User.create(params.require(:user).permit(:avatar)) %>
-<div class="field">
-<%= form_for @user, url: users_path, html: { multipart: true } do |form| %>
-  <%= form.file_field :avatar %>
-<% end %>
-</div>
 
   <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, help: "Must be at least 8 characters long", autocomplete: "off" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 

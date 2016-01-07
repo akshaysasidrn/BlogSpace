@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   root 'posts#home'
   post '/posts/:post_id/comments' => 'comments#create', as: :post_comments
   get  '/profile' => 'profile#index'
-  get '/profile/edit' => 'profile#edit', as: :edit_profile
   #get '/posts' => 'posts#index' as: :current_user_path
 
   # Example of regular route:
