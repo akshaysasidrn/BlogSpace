@@ -8,8 +8,10 @@
           <% end %>
       <% end %>
       <br>
-      <% id = post.user_id %>
-      <span style="font-size:25px; font-family:'Poppins', sans-serif"><%= post.title %></span><br><span style="color: #777"><a href="profile_show_path(@posts)"><%= @username %></span></a><br>
+      <span style="font-size:25px; font-family:'Poppins', sans-serif"><%= post.title %></span><br>
+      <span style="color: #777">
+      <%= link_to @username, {:controller => "profile", :action => "show", :id => post.user_id }%>
+      </span><br>
       <span style="font-size:15px; font-family:sans-serif"><%= truncate(strip_tags(post.body),length: 500) %></span><br>
       <span>
             <%= link_to '<i class="fa fa-eye"> Show </i>'.html_safe, post %>
