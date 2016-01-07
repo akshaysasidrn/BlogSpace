@@ -10,6 +10,12 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
+<% @user = User.create(params.require(:user).permit(:avatar)) %>
+<div class="field">
+<%= form_for @user, url: users_path, html: { multipart: true } do |form| %>
+  <%= form.file_field :avatar %>
+<% end %>
+</div>
 
   <div class="field">
     <%= f.label :password %>
