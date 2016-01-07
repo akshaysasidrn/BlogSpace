@@ -22,6 +22,14 @@ module BlogApp
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     
+    config.after_initialize do
+    Disqus::defaults[:account] = "Akshay Sasidharan"
+    # so that the comments will load up in development environment
+    Disqus::defaults[:developer] = true
+    Disqus::defaults[:container_id] = "disqus_thread"
+    Disqus::defaults[:show_powered_by] = false
+    end
+
     config.assets.precompile += %w( ckeditor/* )
     config.active_record.raise_in_transactional_callbacks = true
   end

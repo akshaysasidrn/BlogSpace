@@ -18,6 +18,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 
 gem 'devise'
 
+gem 'disqus'
+
 gem 'bootstrap_form'
 
 gem 'pg', group: :production

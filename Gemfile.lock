@@ -77,6 +77,8 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    disqus (1.0.4)
+      json
     erubis (2.7.0)
     execjs (2.6.0)
     font-awesome-rails (4.5.0.0)
@@ -197,6 +199,7 @@ DEPENDENCIES
   ckeditor!
   coffee-rails (~> 4.1.0)
   devise
+  disqus
   font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails

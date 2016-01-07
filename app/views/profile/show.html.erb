@@ -4,15 +4,15 @@
     <div class = "row">
       <div class = "col-sm-1"></div>
       <div class = "col-sm-4">
-        <%= image_tag current_user.avatar.url(:medium) %>
+        <%= image_tag @user.avatar.url(:medium) %>
       </div>
       <div class = "col-sm-7"></div>
     </div>
     <hr>
 
     <div class="container">
-      <span style="font-size:20px; font-family:'Poppins', sans-serif"><%= current_user.name %></span><br>
-      <%= current_user.email %>
+      <span style="font-size:20px; font-family:'Poppins', sans-serif"><%= @user.name %></span><br>
+      <%= @user.email %>
     </div>
   </div>
 
@@ -26,19 +26,15 @@
         <div id="posts" class="tab-pane fade in active">
           <div class="container"><span style="float:right"><%= link_to '<i class="fa fa-plus"> New Post</i>'.html_safe, new_post_path %></span>
             <p id="notice"><%= notice %></p>
-            <% @posts.each do |post| %>
-            <% User.all.each do |p| %>
-            <% if post.user_id == p.id %>
-            <% @username = p.email %>
-            <% end %>
-            <% end %>
             <br>
             <span style="font-size:25px; font-family:'Poppins', sans-serif"><%= post.title %></span><br>
             <span style="font-size:15px; font-family:sans-serif"><%= truncate(strip_tags(post.body),length: 500) %></span><br>
             <span>
               <%= link_to '<i class="fa fa-eye"> Show </i>'.html_safe, post %>
+              <% if post.user_id == current_user.id %>
               <%= link_to '<i class="fa fa-pencil"> Edit </i>'.html_safe, edit_post_path(post) %>
               <%= link_to '<i class="fa fa-trash"> Delete </i>'.html_safe, post, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
               <span style="float:right"><%= (post.created_at).strftime("%d %b %y") %></span><br>
             </span>
             <hr>
