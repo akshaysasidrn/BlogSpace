@@ -21,7 +21,7 @@
     <div>
       <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
-        <% @username = current_user.email.chomp.split("@").first %>
+        <% @username = current_user.name.chomp.split(" ").first %>
       <% end %>
     <% if user_signed_in? %>
         <li><a href="/posts">Home</a></li>
