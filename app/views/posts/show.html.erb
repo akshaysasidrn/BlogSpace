@@ -17,7 +17,6 @@
   <%=simple_format(@post.body)%>
 </p>
 
-<h3>Comments</h3>
 <%=bootstrap_form_for @comment, url: post_comments_path(@post) do |f| %>
 	<%= f.text_area :comment , style: 'width:80%' %>
 	<br/>
@@ -28,7 +27,9 @@
 	<p><%= x.comment %></p>
 <% end %>
 
+<% if current_user.id == @post.user_id %>
 <%= link_to 'Edit', edit_post_path(@post) %> |
+<% end %>
 <%= link_to 'Back', posts_path %>
 </div>
 
