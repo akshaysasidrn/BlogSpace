@@ -8,5 +8,6 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
 end

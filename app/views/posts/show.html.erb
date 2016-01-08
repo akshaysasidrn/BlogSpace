@@ -21,14 +21,8 @@
 
 <h3>Comments:</h3>
 <% @post.comments.each do |x| %>
-	<% User.all.each do |p| %>
-		<% if p.id == @post.user_id%>
-			<% @name = p.name %>
-			<% @id = p.id %>
-		<% end %>
-	<% end %>
 	<span style="font-size:14px;font-family:'sans-serif,float:left;">		
-		<%= link_to @name, {:controller => "profile", :action => "show", :id => @id }%> :
+		<%= link_to x.commenter, {:controller => "profile", :action => "show", :id => x.user_id }%> :
 	</span>
 	<p><%= x.comment %></p>
 <% end %>
