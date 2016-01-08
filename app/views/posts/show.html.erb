@@ -5,34 +5,43 @@
 <p style="font-size:25px; font-family:'Poppins', sans-serif"> 
   <%=@post.title %>
 </p>
-<span style="float:left;color: #777"><% User.all.each do |p| %>
-<% if @post.user_id == p.id%>
-	<%= link_to p.email, {:controller => "profile", :action => "show", :id => p.id }%>
-<% end %>
-<% end %>
-</span><br>
-<span style="float:right"><%= (@post.created_at).strftime("%d %b %y") %></span><br>
 
+<% User.all.each do |p| %>
+	<% if @post.user_id == p.id%>
+		<span style="font-size:14px;font-family:'sans-serif,float:left;">		
+		<%= link_to p.name, {:controller => "profile", :action => "show", :id => p.id }%>
+		</span>
+		<% end %>
+	<% end %>
+<span style="float:right"><%= (@post.created_at).strftime("%d %b %y") %></span><br>
 <p>
   <%=simple_format(@post.body)%>
 </p>
-
-<%=bootstrap_form_for @comment, url: post_comments_path(@post) do |f| %>
-	<%= f.text_area :comment , style: 'width:80%' %>
-	<br/>
-	<%= f.submit 'Submit' %>
-<% end %>
 <br/>
+
+<h3>Comments:</h3>
 <% @post.comments.each do |x| %>
+	<% User.all.each do |p| %>
+		<% if p.id == @post.user_id%>
+			<% @name = p.name %>
+			<% @id = p.id %>
+		<% end %>
+	<% end %>
+	<span style="font-size:14px;font-family:'sans-serif,float:left;">		
+		<%= link_to @name, {:controller => "profile", :action => "show", :id => @id }%> :
+	</span>
 	<p><%= x.comment %></p>
 <% end %>
+
+<%=bootstrap_form_for @comment, url: post_comments_path(@post) do |f| %>
+	<%= f.text_area :comment , label: "Leave a comment:", style: 'width:80%' %>
+	<%= f.submit 'Submit' %>
+<% end %>
+<br>
 
 <% if current_user.id == @post.user_id %>
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <% end %>
 <%= link_to 'Back', posts_path %>
-</div>
 
-<div id = "disqus_thread">
-<%= raw(disqus_thread)%>
 </div>

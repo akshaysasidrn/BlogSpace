@@ -4,13 +4,13 @@
     <% @posts.each do |post| %>
       <% User.all.each do |p| %>
           <% if post.user_id == p.id%>
-            <% @username = p.email %>
+            <% @name = p.name %>
           <% end %>
       <% end %>
       <br>
       <span style="font-size:25px; font-family:'Poppins', sans-serif"><%= post.title %></span><br>
-      <span style="color: #777">
-      <%= link_to @username, {:controller => "profile", :action => "show", :id => post.user_id }%>
+      <span style="font-size:14px;font-family:'sans-serif,float:left;">
+       <%= link_to @name, {:controller => "profile", :action => "show", :id => post.user_id }%>
       </span><br>
       <span style="font-size:15px; font-family:sans-serif"><%= truncate(strip_tags(post.body),length: 500) %></span><br>
       <span>
