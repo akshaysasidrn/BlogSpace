@@ -7,7 +7,7 @@
 </p>
 <span style="float:left;color: #777"><% User.all.each do |p| %>
 <% if @post.user_id == p.id%>
-	- <%= p.email %>
+	<%= link_to p.email, {:controller => "profile", :action => "show", :id => p.id }%>
 <% end %>
 <% end %>
 </span><br>
