@@ -1,1 +1,1 @@
-Demo at : blogspaceapp.heroku.com
+Demo at : blogspaceapp.herokuapp.com
