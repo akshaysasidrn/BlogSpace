@@ -1,17 +1,7 @@
-<%=bootstrap_form_for(@post) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<%=simple_form_for(@post) do |f| %>
 
-      <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
   <div class="field">
-    <%= f.text_field :title, :size => '100x1' %>
+    <%= f.input :title, :size => '100x1' %>
   </div>
   <div>
   <br>

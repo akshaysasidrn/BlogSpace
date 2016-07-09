@@ -1,0 +1,19 @@
+<div class="container">
+<br>
+<h4>Editing comment:</h4>
+
+<%=simple_form_for([@post,@comment]) do |f| %>
+
+  <div class="field">
+    <%= f.input :comment, :size => '100x1' %>
+  </div>
+  <div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+
+<%= link_to 'Back', @post %>
+</div>

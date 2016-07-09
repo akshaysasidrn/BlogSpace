@@ -3,32 +3,32 @@
 <div class="panel panel-default">
   <div class="panel-heading">Sign up</div>
   <div class="panel-body">
-    <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
  
  <div class="field">
   <span style="float:right">
    <div class="media">
-   <%= f.file_field :avatar, label: "Profile Picture" %>
+   <%= f.input :avatar, label: "Profile Picture" %>
   </div>
   </span>
   </div><br>
   <div class="field">
-    <%= f.text_field :name, autofocus: true %>
+    <%= f.input :name, autofocus: true %>
   </div>
 
  
   <div class="field">
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.input :email, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.password_field :password, help: "Must be at least 8 characters long", autocomplete: "off" %>
+    <%= f.input :password, help: "Must be at least 8 characters long", autocomplete: "off" %>
   </div>
 
   <div class="field">
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.input :password_confirmation, autocomplete: "off" %>
   </div>
 
   <div class="actions">

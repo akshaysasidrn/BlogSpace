@@ -1,15 +1,18 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   devise_for :users
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'posts#home'
-  post '/posts/:post_id/comments' => 'comments#create', as: :post_comments
   get  '/profile' => 'profile#index'
   get  '/profile/show' => 'profile#show', as: :profile_show
+
+
   #get '/posts' => 'posts#index' as: :current_user_path
 
   # Example of regular route:

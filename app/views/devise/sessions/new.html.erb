@@ -3,13 +3,13 @@
   <div class="panel panel-default">
     <div class="panel-heading">Log in</div>
     <div class="panel-body">
-    <%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
    <div class="field">
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.input :email, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.input :password, autocomplete: "off" %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
