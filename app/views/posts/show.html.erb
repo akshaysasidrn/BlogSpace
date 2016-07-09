@@ -21,20 +21,26 @@
 
 <h3>Comments:</h3>
 <% @post.comments.each do |x| %>
-	<% User.all.each do |p| %>
-		<% if p.id == @post.user_id%>
-			<% @name = p.name %>
-			<% @id = p.id %>
-		<% end %>
-	<% end %>
 	<span style="font-size:14px;font-family:'sans-serif,float:left;">		
-		<%= link_to @name, {:controller => "profile", :action => "show", :id => @id }%> :
+		<%= link_to x.commenter, {:controller => "profile", :action => "show", :id => x.user_id }%> :
 	</span>
-	<p><%= x.comment %></p>
+	<p>
+	<%= x.comment %> 
+	<% if x.user_id.to_i == current_user.id %>
+		<span style="float:right">
+		<%= link_to '<i class="fa fa-pencil"> </i>'.html_safe, edit_post_comment_path(@post,x) %>
+
+		<%= link_to '<i class="fa fa-trash"> </i>'.html_safe, post_comment_path(@post,x), :confirm => 'Are you sure?', :method => :delete %> 
+		</span>
+	<% end %>
+	</p>
+
+              
+   
 <% end %>
 
-<%=bootstrap_form_for @comment, url: post_comments_path(@post) do |f| %>
-	<%= f.text_area :comment , label: "Leave a comment:", style: 'width:80%' %>
+<%=simple_form_for @comment, url: post_comments_path(@post) do |f| %>
+	<%= f.text_area :comment , label: "Leave a comment:", style: 'width:80%' %><br>
 	<%= f.submit 'Submit' %>
 <% end %>
 <br>
@@ -43,5 +49,4 @@
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <% end %>
 <%= link_to 'Back', posts_path %>
-
 </div>

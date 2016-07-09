@@ -1,0 +1,10 @@
+<div class="container">
+<h2>Editing comment</h2>
+
+<%=simple_form_for @comment, url: post_comments_path(@post) do |f| %>
+	<%= f.text_area :comment , label: "Leave a comment:", style: 'width:80%' %><br>
+	<%= f.submit 'Submit' %>
+<% end %>
+
+<%= link_to 'Back', @post %>
+</div>
