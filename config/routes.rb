@@ -9,10 +9,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'posts#home'
-<<<<<<< HEAD
-=======
   post '/posts/:post_id/comments' => 'comments#create'
->>>>>>> 70b3f9e... comment edit del fix
   get  '/profile' => 'profile#index'
   get  '/profile/show' => 'profile#show', as: :profile_show
 

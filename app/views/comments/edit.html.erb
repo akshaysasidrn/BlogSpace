@@ -1,22 +1,4 @@
 <div class="container">
-<<<<<<< HEAD
-<br>
-<h4>Editing comment:</h4>
-
-<%=simple_form_for([@post,@comment]) do |f| %>
-
-  <div class="field">
-    <%= f.input :comment, :size => '100x1' %>
-  </div>
-  <div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-
-
-
-=======
 <h2>Editing comment</h2>
 
 <%=simple_form_for @comment, url: post_comments_path(@post) do |f| %>
@@ -24,6 +6,5 @@
 	<%= f.submit 'Submit' %>
 <% end %>
 
->>>>>>> 70b3f9e... comment edit del fix
 <%= link_to 'Back', @post %>
 </div>

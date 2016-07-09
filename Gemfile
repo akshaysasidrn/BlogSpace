@@ -17,11 +17,6 @@ gem 'therubyracer', platforms: :ruby
 gem 'devise'
 
 gem 'simple_form'
-<<<<<<< HEAD
-=======
-
-gem 'disqus'
->>>>>>> 70b3f9e... comment edit del fix
 
 gem 'bootstrap-sass', '~> 3.3.6'
 
